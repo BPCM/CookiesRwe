@@ -6,6 +6,23 @@ var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = 
 //todo easter & halloween cookie find/refresh
 //todo add eggs to auto-buy
 function Init() {
+
+   var AddMenu = function() {
+        var title = function() {
+            var div = document.createElement('div');
+            div.className = 'title ' + CM.Disp.colorTextPre + CM.Disp.colorBlue;
+            div.textContent = 'OK';
+            return div;
+        };
+
+        if (Game.onMenu == 'prefs') {
+            CM.Disp.AddMenuPref(title);
+        }
+        else if (CM.Config.Stats == 1 && Game.onMenu == 'stats') {
+            CM.Disp.AddMenuStats(title);
+        }
+    };
+
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
     setInterval(function () {
         Game.ClickCookie();
