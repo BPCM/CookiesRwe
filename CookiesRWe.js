@@ -37,7 +37,7 @@ function upgradeBuildings() {
 function upgradeUpgrades() {
     updateUpgradeAvailable = false;
     for (var i in CM.Cache.Upgrades) {
-        if (CM.Cache.Upgrades[i].color == CM.Disp.colorGray && i != "Golden switch [on]") {
+        if (CM.Cache.Upgrades[i].color == CM.Disp.colorGray && i != "Golden switch [off]") {
             if (i == 'A festive hat')upgradeUpgrade(i);
             else if (i == 'A crumbly egg')upgradeUpgrade(i);
             //todo else if (i == "Elder Pledge")upgradeUpgrade(i);
@@ -103,11 +103,11 @@ function upgradeUpgrades() {
             else if (i == "egg") upgradeUpgrade(i);
 
         }
-        if (CM.Cache.Upgrades[i].color == CM.Disp.colorBlue && i != "Golden switch [on]") {
+        if (CM.Cache.Upgrades[i].color == CM.Disp.colorBlue && i != "Golden switch [off]") {
             updateUpgradeAvailable = true;
             upgradeUpgrade(i);
             break;
-        } else if (CM.Cache.Upgrades[i].color == CM.Disp.colorGreen && i != "Golden switch [on]") {
+        } else if (CM.Cache.Upgrades[i].color == CM.Disp.colorGreen && i != "Golden switch [off]") {
             updateUpgradeAvailable = true;
             upgradeUpgrade(i);
             break;
