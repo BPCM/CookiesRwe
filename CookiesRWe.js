@@ -81,6 +81,26 @@ function upgradeUpgrades() {
             else if (i == "Serendipity") upgradeUpgrade(i);
             else if (i == "Get lucky") upgradeUpgrade(i);
             else if (i == "Omelette") upgradeUpgrade(i);
+            else if (i == "Chicken egg") upgradeUpgrade(i);
+            else if (i == "Duck egg") upgradeUpgrade(i);
+            else if (i == "Turkey egg") upgradeUpgrade(i);
+            else if (i == "Quail egg") upgradeUpgrade(i);
+            else if (i == "Robin egg") upgradeUpgrade(i);
+            else if (i == "Ostrich egg") upgradeUpgrade(i);
+            else if (i == "Cassowary egg") upgradeUpgrade(i);
+            else if (i == "Salmon roe") upgradeUpgrade(i);
+            else if (i == "Frogspawn") upgradeUpgrade(i);
+            else if (i == "Shark egg") upgradeUpgrade(i);
+            else if (i == "Turtle egg") upgradeUpgrade(i);
+            else if (i == "Ant larva") upgradeUpgrade(i);
+            else if (i == "Golden goose egg") upgradeUpgrade(i);
+            else if (i == "Faberge egg") upgradeUpgrade(i);
+            else if (i == "Wrinklerspawn") upgradeUpgrade(i);
+            else if (i == "Cookie egg") upgradeUpgrade(i);
+            else if (i == "Omelette") upgradeUpgrade(i);
+            else if (i == "Chocolate egg") upgradeUpgrade(i);
+            else if (i == "Century egg") upgradeUpgrade(i);
+            else if (i == "egg") upgradeUpgrade(i);
 
         }
         if (CM.Cache.Upgrades[i].color == CM.Disp.colorBlue && i != "Golden switch [off]") {
