@@ -6,22 +6,34 @@ var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = 
 //todo easter & halloween cookie find/refresh
 //todo add eggs to auto-buy
 function Init() {
-
-   var AddMenu = function() {
-        var title = function() {
-            var div = document.createElement('div');
-            div.className = 'title ' + CM.Disp.colorTextPre + CM.Disp.colorBlue;
-            div.textContent = 'OK';
-            return div;
-        };
-
-        if (Game.onMenu == 'prefs') {
-            CM.Disp.AddMenuPref(title);
-        }
-        else if (CM.Config.Stats == 1 && Game.onMenu == 'stats') {
-            CM.Disp.AddMenuStats(title);
-        }
+    var header = function(text, config) {
+        var div = document.createElement('div');
+        div.className = 'listing';
+        div.style.padding = '5px 16px';
+        div.style.opacity = '0.7';
+        div.style.fontSize = '17px';
+        div.style.fontFamily = '\"Kavoon\", Georgia, serif';
+        div.appendChild(document.createTextNode(text + ' '));
+        var span = document.createElement('span');
+        span.style.cursor = 'pointer';
+        span.style.display = 'inline-block';
+        span.style.height = '14px';
+        span.style.width = '14px';
+        span.style.borderRadius = '7px';
+        span.style.textAlign = 'center';
+        span.style.backgroundColor = '#C0C0C0';
+        span.style.color = 'black';
+        span.style.fontSize = '13px';
+        span.style.verticalAlign = 'middle';
+        span.textContent = CM.Config.StatsPref[config] ? '-' : '+';
+        span.onclick = function() {CM.ToggleStatsConfig(config); Game.UpdateMenu();};
+        div.appendChild(span);
+        return div;
     };
+    var stats = document.createElement('div');
+    stats.appendChild(header('Miscellaneous', 'Misc'));
+    l('menu').insertBefore(stats, l('menu').childNodes[2]);
+
 
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
     setInterval(function () {
