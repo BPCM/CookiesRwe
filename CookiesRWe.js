@@ -78,7 +78,7 @@ function upgradeUpgrades() {
             else if (i == "Plastic mouse") upgradeUpgrade(i);
             else if (i == "Titanium mouse") upgradeUpgrade(i);
             else if (i == "Unobtainium mouse") upgradeUpgrade(i);
-            else if (i == "Wishalloy Mouse") upgradeUpgrade(i);
+            else if (i == "Wishalloy mouse") upgradeUpgrade(i);
             else if (i == "Lucky day") upgradeUpgrade(i);
             else if (i == "Serendipity") upgradeUpgrade(i);
             else if (i == "Get lucky") upgradeUpgrade(i);
