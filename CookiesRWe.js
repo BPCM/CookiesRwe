@@ -28,7 +28,7 @@ function Init() {
 }
 
 function upgradeBuildings() {
-    console.log(dInterval);
+    if (debug) console.log(dInterval);
     clearInterval(upgradeInterval);
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
     upgradeUpgrades();
