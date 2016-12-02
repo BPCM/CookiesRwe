@@ -71,10 +71,10 @@ function upgradeUpgrades() {
             else if (i == "Santa's milk and cookies") upgradeUpgrade(i);
             else if (i == "Santa's dominion") upgradeUpgrade(i);
             else if (i == "Adamantium mouse") upgradeUpgrade(i);
-            else if (i == "Eludium Mouse") upgradeUpgrade(i);
-            else if (i == "Fantasteel Mouse") upgradeUpgrade(i);
+            else if (i == "Eludium mouse") upgradeUpgrade(i);
+            else if (i == "Fantasteel mouse") upgradeUpgrade(i);
             else if (i == "Iron mouse") upgradeUpgrade(i);
-            else if (i == "Nevercrack Mouse") upgradeUpgrade(i);
+            else if (i == "Nevercrack mouse") upgradeUpgrade(i);
             else if (i == "Plastic mouse") upgradeUpgrade(i);
             else if (i == "Titanium mouse") upgradeUpgrade(i);
             else if (i == "Unobtainium mouse") upgradeUpgrade(i);
