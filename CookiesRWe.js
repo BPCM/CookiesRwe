@@ -70,18 +70,15 @@ function upgradeUpgrades() {
             else if (i == "Santa's legacy") upgradeUpgrade(i);
             else if (i == "Santa's milk and cookies") upgradeUpgrade(i);
             else if (i == "Santa's dominion") upgradeUpgrade(i);
-            else if (i == "Ambidextrous") upgradeUpgrade(i);
-            else if (i == "Billion fingers") upgradeUpgrade(i);
-            else if (i == "Carpal tunnel prevention cream") upgradeUpgrade(i);
-            else if (i == "Million fingers") upgradeUpgrade(i);
-            else if (i == "Octillion fingers") upgradeUpgrade(i);
-            else if (i == "Quadrillion fingers") upgradeUpgrade(i);
-            else if (i == "Quintillion fingers") upgradeUpgrade(i);
-            else if (i == "Reinforced index finger") upgradeUpgrade(i);
-            else if (i == "Septillion fingers") upgradeUpgrade(i);
-            else if (i == "Sextillion fingers") upgradeUpgrade(i);
-            else if (i == "Thousand fingers") upgradeUpgrade(i);
-            else if (i == "Trillion fingers") upgradeUpgrade(i);
+            else if (i == "Adamantium mouse") upgradeUpgrade(i);
+            else if (i == "Eludium Mouse") upgradeUpgrade(i);
+            else if (i == "Fantasteel Mouse") upgradeUpgrade(i);
+            else if (i == "Iron mouse") upgradeUpgrade(i);
+            else if (i == "Nevercrack Mouse") upgradeUpgrade(i);
+            else if (i == "Plastic mouse") upgradeUpgrade(i);
+            else if (i == "Titanium mouse") upgradeUpgrade(i);
+            else if (i == "Unobtainium mouse") upgradeUpgrade(i);
+            else if (i == "Wishalloy Mouse") upgradeUpgrade(i);
         }
         if (CM.Cache.Upgrades[i].color == CM.Disp.colorBlue && i != "Golden switch [off]") {
             updateUpgradeAvailable = true;
