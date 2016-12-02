@@ -4,9 +4,7 @@ var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = 
 //todo show which seasonal items are missing
 //todo disable click
 //todo easter & halloween cookie find/refresh
-//todo auto-buy christmas stuff
 //todo add eggs to auto-buy
-//add a festive hat
 function Init() {
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
     setInterval(function () {
@@ -82,6 +80,7 @@ function upgradeUpgrades() {
             else if (i == "Lucky day") upgradeUpgrade(i);
             else if (i == "Serendipity") upgradeUpgrade(i);
             else if (i == "Get lucky") upgradeUpgrade(i);
+            else if (i == "Omelette") upgradeUpgrade(i);
 
         }
         if (CM.Cache.Upgrades[i].color == CM.Disp.colorBlue && i != "Golden switch [off]") {
