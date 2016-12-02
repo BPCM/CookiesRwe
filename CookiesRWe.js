@@ -79,9 +79,9 @@ function upgradeUpgrades() {
             else if (i == "Titanium mouse") upgradeUpgrade(i);
             else if (i == "Unobtainium mouse") upgradeUpgrade(i);
             else if (i == "Wishalloy Mouse") upgradeUpgrade(i);
-            else if (i == "Lucky day") upgradeUpgrades(i);
-            else if (i == "Serendipity") upgradeUpgrades(i);
-            else if (i == "Get lucky") upgradeUpgrades(i);
+            else if (i == "Lucky day") upgradeUpgrade(i);
+            else if (i == "Serendipity") upgradeUpgrade(i);
+            else if (i == "Get lucky") upgradeUpgrade(i);
 
         }
         if (CM.Cache.Upgrades[i].color == CM.Disp.colorBlue && i != "Golden switch [off]") {
