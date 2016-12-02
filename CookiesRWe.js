@@ -157,7 +157,7 @@ function confirmWinClose() {
 }
 
 function waitForGame(delay) {
-    if (typeof Game.ClickCookie != 'undefined') {
+    if (typeof Game.ClickCookie != 'undefined' && typeof CM != 'undefined') {
         Init();
     }
     else {
