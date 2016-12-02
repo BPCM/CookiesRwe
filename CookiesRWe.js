@@ -132,11 +132,3 @@ function waitForGame(delay) {
         }, delay);
     }
 }
-
-var counter = 10;
-var myFunction = function () {
-    clearInterval(interval);
-    counter *= 10;
-    interval = setInterval(myFunction, counter);
-};
-var interval = setInterval(myFunction, counter);
