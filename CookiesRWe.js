@@ -6,6 +6,13 @@ var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = 
 //todo easter & halloween cookie find/refresh
 //todo add eggs to auto-buy
 function Init() {
+
+    var frag = document.createDocumentFragment();
+    var label = document.createElement('label');
+    label.textContent = "A new element!";
+    frag.appendChild(label);
+    l('menu').childNodes[2].insertBefore(frag, l('menu').childNodes[2].childNodes[l('menu').childNodes[2].childNodes.length - 1]);
+
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
     setInterval(function () {
         Game.ClickCookie();
