@@ -28,7 +28,7 @@ function Init() {
 }
 
 function upgradeBuildings() {
-    if (debug) console.log(dInterval);
+    console.log(dInterval);
     clearInterval(upgradeInterval);
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
     upgradeUpgrades();
@@ -37,7 +37,7 @@ function upgradeBuildings() {
 function upgradeUpgrades() {
     updateUpgradeAvailable = false;
     for (var i in CM.Cache.Upgrades) {
-        if (CM.Cache.Upgrades[i].color == CM.Disp.colorGray && i != "Golden switch [off]") {
+        if (CM.Cache.Upgrades[i].color == CM.Disp.colorGray && i != "Golden switch [on]") {
             if (i == 'A festive hat')upgradeUpgrade(i);
             else if (i == 'A crumbly egg')upgradeUpgrade(i);
             //todo else if (i == "Elder Pledge")upgradeUpgrade(i);
@@ -103,11 +103,11 @@ function upgradeUpgrades() {
             else if (i == "egg") upgradeUpgrade(i);
 
         }
-        if (CM.Cache.Upgrades[i].color == CM.Disp.colorBlue && i != "Golden switch [off]") {
+        if (CM.Cache.Upgrades[i].color == CM.Disp.colorBlue && i != "Golden switch [on]") {
             updateUpgradeAvailable = true;
             upgradeUpgrade(i);
             break;
-        } else if (CM.Cache.Upgrades[i].color == CM.Disp.colorGreen && i != "Golden switch [off]") {
+        } else if (CM.Cache.Upgrades[i].color == CM.Disp.colorGreen && i != "Golden switch [on]") {
             updateUpgradeAvailable = true;
             upgradeUpgrade(i);
             break;
