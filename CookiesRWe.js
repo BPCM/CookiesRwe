@@ -109,7 +109,7 @@ function upgradeObject(object) {
 }
 
 function upgradeUpgrade(upgrade) {
-    if (Game.Upgrades[upgrade].bought = 0 && Game.cookiesd >= Game.Upgrades[upgrade].basePrice) {
+    if (Game.Upgrades[upgrade].bought == 0 && Game.cookiesd >= Game.Upgrades[upgrade].basePrice) {
         Game.Upgrades[upgrade].buy(1);
         clearInterval(upgradeInterval);
         if (debug) console.log(fInterval);
