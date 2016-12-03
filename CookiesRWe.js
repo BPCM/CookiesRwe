@@ -1,5 +1,5 @@
 waitForGame(250);
-var shimmerInterval, upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
+var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo disable click
@@ -9,31 +9,24 @@ function Init() {
 
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
 
-    shimmerInterval = setInterval(shimmerKiller, dInterval);
-
     setInterval(function () {
         Game.ClickCookie();
     }, 16);
 
+    setInterval(function () {
+        for (var g = 0; g < Game.shimmers.length; g++) {
+            if (Game.shimmers[g].type == "golden" || Game.shimmers[g].type == "reindeer") {
+                Game.shimmers[g].pop();
+            }
+        }
+
+        if (Game.hasBuff('Clot') > 0) {
+            Game.WriteSave();
+            location.reload();
+        }
+    }, 1000);
 
     //  window.onbeforeunload = confirmWinClose;
-}
-
-function shimmerKiller() {
-    for (var g = 0; g < Game.shimmers.length; g++) {
-        if (Game.shimmers[g].type == "golden" || Game.shimmers[g].type == "reindeer") {
-            Game.shimmers[g].pop();
-        } else { //setting speed back to normal
-            clearInterval(shimmerInterval);
-            shimmerInterval = setInterval(shimmerKiller, dInterval);
-        }
-    }
-    if (Game.hasBuff('Clot') > 0) {
-        Game.WriteSave();
-        location.reload();
-    }
-    clearInterval(shimmerInterval);
-    shimmerInterval = setInterval(shimmerKiller, fInterval); //click more things in case of cookie storm
 }
 
 function upgradeBuildings() {
