@@ -1,5 +1,5 @@
 waitForGame(250);
-var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
+var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = true;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo disable click
