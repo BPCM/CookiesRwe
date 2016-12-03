@@ -158,6 +158,7 @@ function upgradeObjects() {
 }
 
 function upgradeObject(object) {
+    console.log("upgradeObjects entered");
     try {
         Game.Objects[object].buy(1);
         clearInterval(upgradeInterval);
@@ -166,10 +167,12 @@ function upgradeObject(object) {
     } catch (e) {
         console.log(e.message);
     }
-
+    console.log("upgradeObjects exited");
 }
 
 function upgradeUpgrade(upgrade, color) {
+    console.log("upgradeUpgrade entered");
+
     try {
         if (Game.Upgrades[upgrade].bought == 0 && Game.cookiesd >= Game.Upgrades[upgrade].basePrice) {
             console.log(upgrade + ": " + color);
@@ -181,6 +184,8 @@ function upgradeUpgrade(upgrade, color) {
     } catch (e) {
         console.log(e.message);
     }
+    console.log("upgradeUpgrade exit");
+
 }
 
 function confirmWinClose() {
