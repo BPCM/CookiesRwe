@@ -27,13 +27,18 @@ function Init() {
     }, 1000);
 
 
-    document.onkeyup=function(e){
-        var e = e || window.event; // for IE to cover IEs window event-object
-        if(e.altKey && e.which == 65) {
-            alert('Keyboard shortcut working!');
-            return false;
+    AddEvent(window, 'keydown', function (e) {
+        if (!Game.OnAscend && Game.AscendTimer == 0) {
+            if (e.ctrlKey && e.keyCode == 66) { //b
+                alert("pausing clicker!")
+            }//ctrl-s saves the game
+            else if (e.ctrlKey && e.keyCode == 78) { //n
+                alert("CLot disabled!")
+            }//ctrl-o opens the import menu
         }
-    };
+        Game.keys[e.keyCode] = 1;
+    });
+
     //  window.onbeforeunload = confirmWinClose;
 }
 
