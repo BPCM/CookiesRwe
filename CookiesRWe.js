@@ -1,5 +1,5 @@
 waitForGame(250);
-var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = true;
+var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo disable click
@@ -26,6 +26,14 @@ function Init() {
         }
     }, 1000);
 
+
+    document.onkeyup=function(e){
+        var e = e || window.event; // for IE to cover IEs window event-object
+        if(e.altKey && e.which == 65) {
+            alert('Keyboard shortcut working!');
+            return false;
+        }
+    };
     //  window.onbeforeunload = confirmWinClose;
 }
 
