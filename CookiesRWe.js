@@ -1,5 +1,5 @@
 waitForGame(250);
-var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
+var clickLoop, upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo disable click
@@ -9,7 +9,7 @@ function Init() {
 //sad
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
 
-    setInterval(function () {
+    var clickLoop = setInterval(function () {
         Game.ClickCookie();
     }, 16);
 
@@ -29,10 +29,12 @@ function Init() {
 
     AddEvent(window, 'keydown', function (e) {
         if (!Game.OnAscend && Game.AscendTimer == 0) {
-            if (e.ctrlKey && e.keyCode == 66) { //b
+            if (/*e.ctrlKey &&*/ e.keyCode == 103) { //NUM7
+
+                clearInterval(clickLoop);
                 alert("pausing clicker!")
-            }//ctrl-s saves the game
-            else if (e.ctrlKey && e.keyCode == 78) { //n
+            }
+            else if (/*e.ctrlKey &&*/ e.keyCode == 103) { //NUM8
                 alert("CLot disabled!")
             }//ctrl-o opens the import menu
         }
