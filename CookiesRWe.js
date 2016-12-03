@@ -66,7 +66,7 @@ function upgradeUpgrades() {
         if (color == CM.Disp.colorGray && i != "Golden switch [off]") {
             if (i == 'A festive hat')upgradeUpgrade(i, color);
             else if (i == 'A crumbly egg')upgradeUpgrade(i, color);
-            //todo else if (i == "Elder Pledge")upgradeUpgrade(i,color);
+            else if (i == "Elder Pledge")upgradeUpgrade(i, color);
             else if (i == "Reinforced index finger") upgradeUpgrade(i, color);
             else if (i == "Carpal tunnel prevention cream") upgradeUpgrade(i, color);
             else if (i == "Ambidextrous") upgradeUpgrade(i, color);
