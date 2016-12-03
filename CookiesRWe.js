@@ -30,7 +30,7 @@ function Init() {
 }
 
 function upgradeBuildings() {
-    if (debug) console.log(dInterval);
+    if (debug) console.log("upgradeBuildings: " + new Date());
     clearInterval(upgradeInterval);
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
     upgradeUpgrades();
