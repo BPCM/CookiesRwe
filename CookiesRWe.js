@@ -14,6 +14,8 @@ function Init() {
         }, 16);
 
         setInterval(function () {
+            console.log("shimmers entered");
+
             for (var g = 0; g < Game.shimmers.length; g++) {
                 if (Game.shimmers[g].type == "golden" || Game.shimmers[g].type == "reindeer") {
                     Game.shimmers[g].pop();
@@ -24,6 +26,8 @@ function Init() {
                 Game.WriteSave();
                 location.reload();
             }
+            console.log("shimmers entered");
+
         }, 1000);
 
         //  window.onbeforeunload = confirmWinClose;
@@ -33,6 +37,8 @@ function Init() {
 }
 
 function upgradeBuildings() {
+    console.log("upgradeBuildings entered");
+
     try {
         if (debug) console.log(dInterval);
         clearInterval(upgradeInterval);
@@ -42,6 +48,8 @@ function upgradeBuildings() {
     } catch (e) {
         console.log(e.message);
     }
+    console.log("upgradeBuildings exited");
+
 }
 
 function upgradeUpgrades() {
