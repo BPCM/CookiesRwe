@@ -1,5 +1,5 @@
 waitForGame(250);
-var clickLoop, upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false, clickLoopEnabled = true, elderPledgeUpgrade = true;
+var clickLoop, upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false, clickLoopEnabled = true, elderPledgeUpgrade = false;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo disable click
