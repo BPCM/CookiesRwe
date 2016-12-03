@@ -7,27 +7,7 @@ var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = 
 //todo add eggs to auto-buy
 function Init() {
     try {
-        //  upgradeInterval = setInterval(upgradeBuildings, dInterval);
-
-
-        var upgradeBuildings = function () {
-            console.log("upgradeBuildings entered");
-            try {
-                if (debug) console.log(dInterval);
-                clearInterval(upgradeInterval);
-                upgradeInterval = setInterval(upgradeBuildings, dInterval);
-                upgradeUpgrades();
-                upgradeObjects();
-            } catch (e) {
-                console.log(e.message);
-            }
-            console.log("upgradeBuildings exited");
-            console.log(fInterval);
-            timeout = setTimeout(upgradeBuildings, fInterval);
-        };
-
-        var timeout = setTimeout(upgradeBuildings, dInterval);
-
+      //  upgradeInterval = setInterval(upgradeBuildings, dInterval);
 
         setInterval(function () {
             Game.ClickCookie();
@@ -39,6 +19,7 @@ function Init() {
                     Game.shimmers[g].pop();
                 }
             }
+
             if (Game.hasBuff('Clot') > 0) {
                 Game.WriteSave();
                 location.reload();
@@ -51,6 +32,20 @@ function Init() {
     }
 }
 
+function upgradeBuildings() {
+    console.log("upgradeBuildings entered");
+    try {
+        if (debug) console.log(dInterval);
+        clearInterval(upgradeInterval);
+        upgradeInterval = setInterval(upgradeBuildings, dInterval);
+        upgradeUpgrades();
+        upgradeObjects();
+    } catch (e) {
+        console.log(e.message);
+    }
+    console.log("upgradeBuildings exited");
+
+}
 
 function upgradeUpgrades() {
     console.log("upgradeUpgradessssss entered");
