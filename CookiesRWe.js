@@ -1,5 +1,5 @@
 waitForGame(250);
-var clickLoop, upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
+var clickLoop, upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false, clickLoopEnabled = true;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo disable click
@@ -9,9 +9,7 @@ function Init() {
 //sad
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
 
-    var clickLoop = setInterval(function () {
-        Game.ClickCookie();
-    }, 16);
+    clickLoop = setInterval(clickBigCookie, 16);
 
     setInterval(function () {
         for (var g = 0; g < Game.shimmers.length; g++) {
@@ -30,18 +28,25 @@ function Init() {
     AddEvent(window, 'keydown', function (e) {
         if (!Game.OnAscend && Game.AscendTimer == 0) {
             if (/*e.ctrlKey &&*/ e.keyCode == 103) { //NUM7
-
-                clearInterval(clickLoop);
-                alert("pausing clicker!")
+                if (clickLoopEnabled) {
+                    clearInterval(clickLoop);
+                    Game.Popup('Pausing auto-clicker');
+                } else {
+                    Game.Popup('Enabling auto-clicker');
+                    clickLoop = setInterval(clickBigCookie, 16);
+                }
             }
             else if (/*e.ctrlKey &&*/ e.keyCode == 103) { //NUM8
-                alert("CLot disabled!")
+                alert("Clot disabled!")
             }//ctrl-o opens the import menu
         }
         Game.keys[e.keyCode] = 1;
     });
 
     //  window.onbeforeunload = confirmWinClose;
+}
+function clickBigCookie() {
+    Game.ClickCookie();
 }
 
 function upgradeBuildings() {
