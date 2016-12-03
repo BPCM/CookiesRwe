@@ -15,7 +15,6 @@ function Init() {
 
         setInterval(function () {
             console.log("shimmers entered");
-
             for (var g = 0; g < Game.shimmers.length; g++) {
                 if (Game.shimmers[g].type == "golden" || Game.shimmers[g].type == "reindeer") {
                     Game.shimmers[g].pop();
@@ -27,7 +26,6 @@ function Init() {
                 location.reload();
             }
             console.log("shimmers entered");
-
         }, 1000);
 
         //  window.onbeforeunload = confirmWinClose;
@@ -183,7 +181,7 @@ function upgradeObject(object) {
     } catch (e) {
         console.log(e.message);
     }
-    console.log("upgradeObjects exited");
+    console.log("upgradeObject exited");
 }
 
 function upgradeUpgrade(upgrade, color) {
