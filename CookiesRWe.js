@@ -28,7 +28,7 @@ function Init() {
 
         //  window.onbeforeunload = confirmWinClose;
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 }
 
@@ -40,7 +40,7 @@ function upgradeBuildings() {
         upgradeUpgrades();
         upgradeObjects();
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 }
 
@@ -132,7 +132,7 @@ function upgradeUpgrades() {
             }
         }
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 }
 
@@ -153,7 +153,7 @@ function upgradeObjects() {
                 }
             }
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 }
 
@@ -164,7 +164,7 @@ function upgradeObject(object) {
         if (debug) console.log(fInterval);
         upgradeInterval = setInterval(upgradeBuildings, fInterval);
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 
 }
@@ -179,7 +179,7 @@ function upgradeUpgrade(upgrade, color) {
             upgradeInterval = setInterval(upgradeBuildings, fInterval);
         }
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 }
 
@@ -198,6 +198,6 @@ function waitForGame(delay) {
             }, delay);
         }
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 }
