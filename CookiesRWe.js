@@ -7,10 +7,10 @@ var clickLoop, upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeA
 //todo add eggs to auto-buy
 function Init() {
 //sad
+    //PlaySound('snd/click'+(Game.cookieClickSound)+'.mp3',0.5);
+    Game.playCookieClickSound=function(){};
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
-
     clickLoop = setInterval(clickBigCookie, 16);
-
     setInterval(function () {
         for (var g = 0; g < Game.shimmers.length; g++) {
             if (Game.shimmers[g].type == "golden" || Game.shimmers[g].type == "reindeer") {
