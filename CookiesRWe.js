@@ -1,5 +1,5 @@
 waitForGame(250);
-var clickLoop, upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false, clickLoopEnabled = true;
+var clickLoop, upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false, clickLoopEnabled = true, elderPledgeUpgrade = true;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo disable click
@@ -39,7 +39,14 @@ function Init() {
                 }
             }
             else if (/*e.ctrlKey &&*/ e.keyCode == 103) { //NUM8
-                alert("Clot disabled!")
+                if (elderPledgeUpgrade) {
+                    elderPledgeUpgrade = false;
+                    Game.Popup('Disabled elder pledge auto-buy');
+                } else {
+                    elderPledgeUpgrade = true;
+                    Game.Popup('Disabled elder pledge auto-buy');
+
+                }
             }//ctrl-o opens the import menu
         }
         Game.keys[e.keyCode] = 1;
@@ -66,7 +73,7 @@ function upgradeUpgrades() {
         if (color == CM.Disp.colorGray && i != "Golden switch [off]") {
             if (i == 'A festive hat')upgradeUpgrade(i, color);
             else if (i == 'A crumbly egg')upgradeUpgrade(i, color);
-            else if (i == "Elder Pledge")upgradeUpgrade(i, color);
+            else if (elderPledgeUpgrade && i == "Elder Pledge")upgradeUpgrade(i, color);
             else if (i == "Reinforced index finger") upgradeUpgrade(i, color);
             else if (i == "Carpal tunnel prevention cream") upgradeUpgrade(i, color);
             else if (i == "Ambidextrous") upgradeUpgrade(i, color);
