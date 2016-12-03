@@ -23,6 +23,7 @@ function Init() {
             if (Game.hasBuff('Clot') > 0) {
                 Game.WriteSave();
                 location.reload();
+
             }
         }, 1000);
 
