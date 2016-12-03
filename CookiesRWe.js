@@ -42,8 +42,6 @@ function upgradeUpgrades() {
     updateUpgradeAvailable = false;
     for (var i in CM.Cache.Upgrades) {
         var color = CM.Cache.Upgrades[i].color;
-        console.log("color below:");
-        console.log(color);
         if (color == CM.Disp.colorGray && i != "Golden switch [off]") {
             if (i == 'A festive hat')upgradeUpgrade(i, color);
             else if (i == 'A crumbly egg')upgradeUpgrade(i, color);
