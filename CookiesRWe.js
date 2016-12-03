@@ -7,7 +7,7 @@ var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = 
 //todo add eggs to auto-buy
 function Init() {
     try {
-        upgradeInterval = setInterval(upgradeBuildings, dInterval);
+      //  upgradeInterval = setInterval(upgradeBuildings, dInterval);
 
         setInterval(function () {
             Game.ClickCookie();
@@ -36,7 +36,6 @@ function Init() {
 
 function upgradeBuildings() {
     console.log("upgradeBuildings entered");
-
     try {
         if (debug) console.log(dInterval);
         clearInterval(upgradeInterval);
