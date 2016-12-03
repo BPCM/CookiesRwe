@@ -1,5 +1,5 @@
 waitForGame(250);
-var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
+var  upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo disable click
@@ -7,25 +7,26 @@ var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = 
 //todo add eggs to auto-buy
 function Init() {
     try {
-      //  upgradeInterval = setInterval(upgradeBuildings, dInterval);
+        //  upgradeInterval = setInterval(upgradeBuildings, dInterval);
+
+
+        upgradeInterval = setTimeout(upgradeBuildings, dInterval);
+
 
         setInterval(function () {
             Game.ClickCookie();
         }, 16);
 
         setInterval(function () {
-            console.log("shimmers entered");
             for (var g = 0; g < Game.shimmers.length; g++) {
                 if (Game.shimmers[g].type == "golden" || Game.shimmers[g].type == "reindeer") {
                     Game.shimmers[g].pop();
                 }
             }
-
             if (Game.hasBuff('Clot') > 0) {
                 Game.WriteSave();
                 location.reload();
             }
-            console.log("shimmers entered");
         }, 1000);
 
         //  window.onbeforeunload = confirmWinClose;
@@ -34,20 +35,20 @@ function Init() {
     }
 }
 
-function upgradeBuildings() {
-    console.log("upgradeBuildings entered");
+var upgradeBuildings = function () {
+    console.log("upgradeBuildings entered:  " + new Date());
     try {
         if (debug) console.log(dInterval);
-        clearInterval(upgradeInterval);
-        upgradeInterval = setInterval(upgradeBuildings, dInterval);
+        clearInterval(dInterval);
         upgradeUpgrades();
         upgradeObjects();
     } catch (e) {
         console.log(e.message);
     }
     console.log("upgradeBuildings exited");
-
-}
+    console.log(fInterval);
+    upgradeInterval = setTimeout(upgradeBuildings, dInterval);
+};
 
 function upgradeUpgrades() {
     console.log("upgradeUpgradessssss entered");
