@@ -1,5 +1,5 @@
 waitForGame(250);
-var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
+var shimmerInterval, upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo disable click
@@ -7,26 +7,33 @@ var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = 
 //todo add eggs to auto-buy
 function Init() {
 
-
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
+
+    shimmerInterval = setInterval(shimmerKiller, dInterval);
+
     setInterval(function () {
         Game.ClickCookie();
     }, 16);
 
-    setInterval(function () {
-        for (var g = 0; g < Game.shimmers.length; g++) {
-            if (Game.shimmers[g].type == "golden" || Game.shimmers[g].type == "reindeer") {
-                Game.shimmers[g].pop();
-            }
-        }
-
-        if (Game.hasBuff('Clot') > 0) {
-            Game.WriteSave();
-            location.reload();
-        }
-    }, 1000);
 
     //  window.onbeforeunload = confirmWinClose;
+}
+
+function shimmerKiller() {
+    for (var g = 0; g < Game.shimmers.length; g++) {
+        if (Game.shimmers[g].type == "golden" || Game.shimmers[g].type == "reindeer") {
+            Game.shimmers[g].pop();
+        } else { //setting speed back to normal
+            clearInterval(shimmerInterval);
+            shimmerInterval = setInterval(shimmerKiller, dInterval);
+        }
+    }
+    if (Game.hasBuff('Clot') > 0) {
+        Game.WriteSave();
+        location.reload();
+    }
+    clearInterval(shimmerInterval);
+    shimmerInterval = setInterval(shimmerKiller, fInterval); //click more things in case of cookie storm
 }
 
 function upgradeBuildings() {
@@ -36,6 +43,7 @@ function upgradeBuildings() {
     upgradeUpgrades();
     upgradeObjects();
 }
+
 function upgradeUpgrades() {
     updateUpgradeAvailable = false;
     for (var i in CM.Cache.Upgrades) {
@@ -111,7 +119,6 @@ function upgradeUpgrades() {
             else if (i == "Pumpkin cookies") upgradeUpgrade(i, color);
             else if (i == "Eyeball cookies") upgradeUpgrade(i, color);
             else if (i == "Spider cookies") upgradeUpgrade(i, color);
-
         }
         if (color == CM.Disp.colorBlue && i != "Golden switch [off]") {
             updateUpgradeAvailable = true;
@@ -159,7 +166,6 @@ function upgradeUpgrade(upgrade, color) {
         upgradeInterval = setInterval(upgradeBuildings, fInterval);
     }
 }
-
 
 function confirmWinClose() {
     Game.WriteSave();
