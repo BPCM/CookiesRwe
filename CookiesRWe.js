@@ -1,5 +1,5 @@
 waitForGame(250);
-var  upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
+var upgradeInterval, dInterval = 1000, fInterval = 10, updateUpgradeAvailable = false, debug = false;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo disable click
@@ -10,7 +10,23 @@ function Init() {
         //  upgradeInterval = setInterval(upgradeBuildings, dInterval);
 
 
-        upgradeInterval = setTimeout(upgradeBuildings, dInterval);
+        var upgradeBuildings = function () {
+            console.log("upgradeBuildings entered");
+            try {
+                if (debug) console.log(dInterval);
+                clearInterval(upgradeInterval);
+                upgradeInterval = setInterval(upgradeBuildings, dInterval);
+                upgradeUpgrades();
+                upgradeObjects();
+            } catch (e) {
+                console.log(e.message);
+            }
+            console.log("upgradeBuildings exited");
+            console.log(fInterval);
+            timeout = setTimeout(upgradeBuildings, fInterval);
+        };
+
+        var timeout = setTimeout(upgradeBuildings, dInterval);
 
 
         setInterval(function () {
@@ -35,20 +51,6 @@ function Init() {
     }
 }
 
-var upgradeBuildings = function () {
-    console.log("upgradeBuildings entered:  " + new Date());
-    try {
-        if (debug) console.log(dInterval);
-        clearInterval(dInterval);
-        upgradeUpgrades();
-        upgradeObjects();
-    } catch (e) {
-        console.log(e.message);
-    }
-    console.log("upgradeBuildings exited");
-    console.log(fInterval);
-    upgradeInterval = setTimeout(upgradeBuildings, dInterval);
-};
 
 function upgradeUpgrades() {
     console.log("upgradeUpgradessssss entered");
