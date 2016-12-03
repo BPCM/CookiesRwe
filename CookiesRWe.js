@@ -45,6 +45,8 @@ function upgradeBuildings() {
 }
 
 function upgradeUpgrades() {
+    console.log("upgradeUpgradessssss entered");
+
     try {
         updateUpgradeAvailable = false;
         for (var i in CM.Cache.Upgrades) {
@@ -134,9 +136,13 @@ function upgradeUpgrades() {
     } catch (e) {
         console.log(e.message);
     }
+    console.log("upgradeUpgradessssss exited");
+
 }
 
 function upgradeObjects() {
+    console.log("upgradeObjectsssssss entered");
+
     try {
         if (!updateUpgradeAvailable)
             for (var i in CM.Cache.Objects) {
@@ -155,10 +161,12 @@ function upgradeObjects() {
     } catch (e) {
         console.log(e.message);
     }
+    console.log("upgradeObjectsssssss exited");
+
 }
 
 function upgradeObject(object) {
-    console.log("upgradeObjects entered");
+    console.log("upgradeObject entered");
     try {
         Game.Objects[object].buy(1);
         clearInterval(upgradeInterval);
