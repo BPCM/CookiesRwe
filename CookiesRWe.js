@@ -31,8 +31,10 @@ function Init() {
                 if (clickLoopEnabled) {
                     clearInterval(clickLoop);
                     Game.Popup('Pausing auto-clicker');
+                    clickLoopEnabled = false;
                 } else {
                     Game.Popup('Enabling auto-clicker');
+                    clickLoopEnabled = true;
                     clickLoop = setInterval(clickBigCookie, 16);
                 }
             }
