@@ -44,7 +44,7 @@ function Init() {
                     Game.Popup('Disabled elder pledge auto-buy');
                 } else {
                     elderPledgeUpgrade = true;
-                    Game.Popup('Disabled elder pledge auto-buy');
+                    Game.Popup('Enabled elder pledge auto-buy');
 
                 }
             }//ctrl-o opens the import menu
