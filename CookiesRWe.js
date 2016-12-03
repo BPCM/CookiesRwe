@@ -38,7 +38,7 @@ function Init() {
                     clickLoop = setInterval(clickBigCookie, 16);
                 }
             }
-            else if (/*e.ctrlKey &&*/ e.keyCode == 103) { //NUM8
+            else if (/*e.ctrlKey &&*/ e.keyCode == 104) { //NUM8
                 if (elderPledgeUpgrade) {
                     elderPledgeUpgrade = false;
                     Game.Popup('Disabled elder pledge auto-buy');
