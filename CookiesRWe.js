@@ -104,6 +104,13 @@ function upgradeUpgrades() {
             //else if (i == "Chocolate egg") upgradeUpgrade(i, color); I think you are supposed to save this egg for when you ascend
             else if (i == "Century egg") upgradeUpgrade(i, color);
             else if (i == "egg") upgradeUpgrade(i, color);
+            else if (i == "Skull cookies") upgradeUpgrade(i, color);
+            else if (i == "Ghost cookies") upgradeUpgrade(i, color);
+            else if (i == "Bat cookies") upgradeUpgrade(i, color);
+            else if (i == "Slime cookies") upgradeUpgrade(i, color);
+            else if (i == "Pumpkin cookies") upgradeUpgrade(i, color);
+            else if (i == "Eyeball cookies") upgradeUpgrade(i, color);
+            else if (i == "Spider cookies") upgradeUpgrade(i, color);
 
         }
         if (color == CM.Disp.colorBlue && i != "Golden switch [off]") {
