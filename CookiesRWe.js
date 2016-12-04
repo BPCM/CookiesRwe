@@ -7,7 +7,6 @@ var CRW = {};
 //todo if frenzy switch season!!!!!
 //todo disable auto-buy
 //todo add 'Cookies Required'
-//todo two blues chose less cost
 CRW.Init = function () {
     CRW.loops = [];
 
@@ -54,9 +53,6 @@ CRW.Init = function () {
     CRW.loops.clickBigCookie = setInterval(Game.ClickCookie, 16);
     CRW.loops.upgradeInterval = setInterval(CRW.upgradeBuildings, CRW.prefs.normalIntervalSpeed);
     CRW.NotifyMissingSeasonalUpgrades();
-
-
-
 };
 
 CRW.NotifyMissingSeasonalUpgrades = function () {
@@ -159,9 +155,7 @@ CRW.upgradeBuildings = function () {
 
 CRW.upgradeAllAvailableUpgrades = function () {
     CRW.globals.updateUpgradeAvailable = false;
-    /*    if (Game.season == 'easter') {
-     getEasterEggs();
-     }*/
+    var nameOfLowestBlue = null, lowestBlueBasePrice = null, lowestGreenBasePrice = null, nameOfLowestGreen = 0;
     for (var i in CM.Cache.Upgrades) {
         var color = CM.Cache.Upgrades[i].color;
         if (color == CM.Disp.colorGray && i != "Golden switch [off]") {
@@ -214,7 +208,7 @@ CRW.upgradeAllAvailableUpgrades = function () {
             else if (i == "Season savings") CRW.upgradeUpgrade(i, color);
             else if (i == "Toy workshop") CRW.upgradeUpgrade(i, color);
             else if (i == "Naughty list") CRW.upgradeUpgrade(i, color);
-            else if (i == "Sacrificial rolling pills") CRW.upgradeUpgrade(i, color);
+            else if (i == "Sacrificial rolling pins") CRW.upgradeUpgrade(i, color);
             else if (i == "Santa's bottomless bag") CRW.upgradeUpgrade(i, color);
             else if (i == "Santa's helpers") CRW.upgradeUpgrade(i, color);
             else if (i == "Santa's legacy") CRW.upgradeUpgrade(i, color);
@@ -243,14 +237,29 @@ CRW.upgradeAllAvailableUpgrades = function () {
             else if (i == "Spider cookies") CRW.upgradeUpgrade(i, color);
         }
         if (color == CM.Disp.colorBlue && i != "Golden switch [off]") {
-            CRW.globals.updateUpgradeAvailable = true;
-            CRW.upgradeUpgrade(i, color);
-            break;
+            if (lowestBlueBasePrice = null) {
+                lowestBlueBasePrice = Game.Upgrades[i].basePrice;
+                nameOfLowestBlue = i;
+            } else if (lowestBlueBasePrice > Game.Upgrades[i].basePrice) {
+                lowestBlueBasePrice = Game.Upgrades[i].basePrice;
+                nameOfLowestBlue = i;
+            }
         } else if (color == CM.Disp.colorGreen && i != "Golden switch [off]") {
-            CRW.globals.updateUpgradeAvailable = true;
-            CRW.upgradeUpgrade(i, color);
-            break;
+            if (lowestGreenBasePrice = null) {
+                lowestBlueBasePrice = Game.Upgrades[i].basePrice;
+                nameOfLowestBlue = i;
+            } else if (lowestBlueBasePrice > Game.Upgrades[i].basePrice) {
+                lowestBlueBasePrice = Game.Upgrades[i].basePrice;
+                nameOfLowestBlue = i;
+            }
         }
+    }
+    if (lowestBlueBasePrice != null) {
+        CRW.globals.updateUpgradeAvailable = true;
+        CRW.upgradeUpgrade(nameOfLowestBlue, CM.Disp.colorBlue);
+    } else if (lowestGreenBasePrice != null) {
+        CRW.globals.updateUpgradeAvailable = true;
+        CRW.upgradeUpgrade(nameOfLowestGreen, CM.Disp.colorGreen);
     }
 };
 
@@ -308,7 +317,7 @@ function waitForGame(delay) {
     }
 }
 
-function addKeyboardListeners () {
+function addKeyboardListeners() {
     AddEvent(window, 'keydown', function (e) {
         if (!Game.OnAscend && Game.AscendTimer == 0) {
             if (/*e.ctrlKey &&*/ e.keyCode == 103) { //NUM7
