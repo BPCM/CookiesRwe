@@ -260,10 +260,13 @@ function confirmWinClose() {
 }
 
 function waitForGame(delay) {
-    if (typeof Game.ClickCookie != 'undefined' && typeof CM === 'undefined') {
-        Init();
-    }
-    else {
+    var ready = false;
+    try {
+        ready = typeof Game.ClickCookie != 'undefined' && typeof CM !== 'undefined';
+        if (ready) {
+            Init();
+        }
+    } catch (err) {
         setTimeout(function () {
             waitForGame(delay);
         }, delay);
