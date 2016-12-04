@@ -21,7 +21,7 @@ function Init() {
         if (!haveAllValentineCookies) {
             Game.Popup("You are missing Valentine's day cookies");
         } else haveAllValentines = true;
-        if (!haveAllChristmas) {
+        if (!haveAllChristmasUpgrades()) {
             Game.Popup("You are missing Christmas upgrades");
         }
     }
@@ -92,11 +92,11 @@ function haveAllChristmasUpgrades() {
     else if (Game.Upgrades["Toy workshop"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Naughty list"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Sacrificial rolling pills"].bought == 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Santa's bottomless bag"].bought == 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Santa's helpers"].bought == 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Santa's legacy"].bought == 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Santa's milk and cookies"].bought == 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Santa's dominion"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Santa\'s bottomless bag"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Santa\'s helpers"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Santa\'s legacy"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Santa\'s milk and cookies"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Santa\'s dominion"].bought == 0)        caughtThemAll = false;
     haveAllChristmas = caughtThemAll;
     return caughtThemAll;
 
