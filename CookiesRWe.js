@@ -30,20 +30,20 @@ function Init() {
     clickLoop = setInterval(clickBigCookie, 16);
 
     setInterval(function () {
-        if (Game.Upgrades["Bunny biscuit"].unlocked) {
+/*        if (Game.Upgrades["Bunny biscuit"].unlocked) {
             if (!haveAllEaster) {
 
             }
-        }
+        }*/
         for (var g = 0; g < Game.shimmers.length; g++) {
             if (Game.shimmers[g].type == "golden" || Game.shimmers[g].type == "reindeer") {
                 Game.shimmers[g].pop();
             }
         }
-       /* if (Game.hasBuff('Clot') > 0) {
-            Game.WriteSave();
-            location.reload();
-        }*/
+        /* if (Game.hasBuff('Clot') > 0) {
+         Game.WriteSave();
+         location.reload();
+         }*/
     }, 1000);
 
     AddEvent(window, 'keydown', function (e) {
@@ -83,7 +83,8 @@ function haveAllValentineCookies() {
 
 function haveAllChristmasUpgrades() {
     var caughtThemAll = true;
-    if (Game.Upgrades["A lump of coal"].bought == 0)        caughtThemAll = false;
+    if (Game.Upgrades['A festive hat'].bought == 0) caughtThemAll = false;
+    else if (Game.Upgrades["A lump of coal"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["An itchy sweater"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Reindeer baking grounds"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Weighted sleighs"].bought == 0)        caughtThemAll = false;
@@ -91,7 +92,6 @@ function haveAllChristmasUpgrades() {
     else if (Game.Upgrades["Season savings"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Toy workshop"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Naughty list"].bought == 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Sacrificial rolling pills"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Santa\'s bottomless bag"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Santa\'s helpers"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Santa\'s legacy"].bought == 0)        caughtThemAll = false;
