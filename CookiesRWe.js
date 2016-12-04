@@ -7,6 +7,7 @@ var CRW = {};
 //todo if frenzy switch season!!!!!
 //todo disable auto-buy
 //todo add 'Cookies Required'
+//todo two blues chose less cost
 CRW.Init = function () {
     CRW.loops = [];
 
@@ -30,7 +31,6 @@ CRW.Init = function () {
     CRW.haveAllValentines = false;
 
     addKeyboardListeners();
-
 
     setInterval(function () {
         /*        if (Game.Upgrades["Bunny biscuit"].unlocked) {
@@ -243,6 +243,7 @@ CRW.upgradeAllAvailableUpgrades = function () {
             else if (i == "Spider cookies") CRW.upgradeUpgrade(i, color);
         }
         if (color == CM.Disp.colorBlue && i != "Golden switch [off]") {
+            CRW.globals.updateUpgradeAvailable = true;
             CRW.upgradeUpgrade(i, color);
             break;
         } else if (color == CM.Disp.colorGreen && i != "Golden switch [off]") {
