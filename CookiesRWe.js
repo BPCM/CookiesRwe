@@ -61,50 +61,50 @@ function Init() {
 
 function haveAllValentineCookies() {
     var caughtThemAll = true;
-    if (Game.Upgrades["Pure heart biscuits"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Ardent heart biscuits"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Sour heart biscuits"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Weeping heart biscuits"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Golden heart biscuits"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Eternal heart biscuits"].bought = 0)        caughtThemAll = false;
+    if (Game.Upgrades["Pure heart biscuits"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Ardent heart biscuits"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Sour heart biscuits"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Weeping heart biscuits"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Golden heart biscuits"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Eternal heart biscuits"].bought == 0)        caughtThemAll = false;
     return caughtThemAll;
 }
 
 function haveAllEasterEggs() {
     var caughtThemAll = true;
-    if (Game.Upgrades["Omelette"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Chicken egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Duck egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Turkey egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Quail egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Robin egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Ostrich egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Cassowary egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Salmon roe"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Frogspawn"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Shark egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Turtle egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Ant larva"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Golden goose egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Faberge egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Wrinklerspawn"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Cookie egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Omelette"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Chocolate egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Century egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["\"egg\""].bought = 0)        caughtThemAll = false;
+    if (Game.Upgrades["Omelette"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Chicken egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Duck egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Turkey egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Quail egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Robin egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Ostrich egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Cassowary egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Salmon roe"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Frogspawn"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Shark egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Turtle egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Ant larva"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Golden goose egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Faberge egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Wrinklerspawn"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Cookie egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Omelette"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Chocolate egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Century egg"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["\"egg\""].bought == 0)        caughtThemAll = false;
     return caughtThemAll;
 }
 
 function haveAllHalloweenCookies() {
     var caughtThemAll = true;
-    if (Game.Upgrades["Skull cookies"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Ghost cookies"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Bat cookies"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Slime cookies"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Pumpkin cookies"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Eyeball cookies"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["Spider cookies"].bought = 0)        caughtThemAll = false;
+    if (Game.Upgrades["Skull cookies"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Ghost cookies"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Bat cookies"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Slime cookies"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Pumpkin cookies"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Eyeball cookies"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Spider cookies"].bought == 0)        caughtThemAll = false;
     return caughtThemAll
 }
 
@@ -155,7 +155,7 @@ function upgradeUpgrades() {
             else if (i == "Omelette") upgradeUpgrade(i, color);
             //else if (i == "Chocolate egg") upgradeUpgrade(i, color); I think you are supposed to save this egg for when you ascend
             else if (i == "Century egg") upgradeUpgrade(i, color);
-            else if (i == "egg") upgradeUpgrade(i, color);
+            else if (i == "\"egg\"") upgradeUpgrade(i, color);
 
 
             else if (i == "Reinforced index finger") upgradeUpgrade(i, color);
