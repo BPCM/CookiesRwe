@@ -1,7 +1,8 @@
 waitForGame(250);
 var debug = false, dInterval = 1000, fInterval = 10,
     clickLoop, upgradeInterval,
-    updateUpgradeAvailable = false, clickLoopEnabled = true, elderPledgeUpgrade = true;
+    updateUpgradeAvailable = false, clickLoopEnabled = true, elderPledgeUpgrade = true,
+    haveAllEaster = false, haveAllChristmas = false, haveAllHalloween = false, haveAllValentines = false;
 //todo basePrice is not actual cost!
 //todo show which seasonal items are missing
 //todo easter & halloween cookie find/refresh
@@ -19,21 +20,30 @@ function Init() {
         }
         if (!haveAllValentineCookies) {
             Game.Popup("You are missing Valentine's day cookies");
+        } else haveAllValentines = true;
+        if (!haveAllChristmasUpgrades()) {
+            Game.Popup("You are missing Christmas upgrades");
         }
     }
 
     upgradeInterval = setInterval(upgradeBuildings, dInterval);
     clickLoop = setInterval(clickBigCookie, 16);
+
     setInterval(function () {
+        if (Game.Upgrades["Bunny biscuit"].unlocked) {
+            if (!haveAllEaster) {
+
+            }
+        }
         for (var g = 0; g < Game.shimmers.length; g++) {
             if (Game.shimmers[g].type == "golden" || Game.shimmers[g].type == "reindeer") {
                 Game.shimmers[g].pop();
             }
         }
-        if (Game.hasBuff('Clot') > 0) {
+       /* if (Game.hasBuff('Clot') > 0) {
             Game.WriteSave();
             location.reload();
-        }
+        }*/
     }, 1000);
 
     AddEvent(window, 'keydown', function (e) {
@@ -67,7 +77,29 @@ function haveAllValentineCookies() {
     else if (Game.Upgrades["Weeping heart biscuits"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Golden heart biscuits"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Eternal heart biscuits"].bought == 0)        caughtThemAll = false;
+    haveAllValentines = caughtThemAll;
     return caughtThemAll;
+}
+
+function haveAllChristmasUpgrades() {
+    var caughtThemAll = true;
+    if (Game.Upgrades["A lump of coal"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["An itchy sweater"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Reindeer baking grounds"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Weighted sleighs"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Ho ho ho-flavored frosting"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Season savings"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Toy workshop"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Naughty list"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Sacrificial rolling pills"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Santa's bottomless bag"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Santa's helpers"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Santa's legacy"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Santa's milk and cookies"].bought == 0)        caughtThemAll = false;
+    else if (Game.Upgrades["Santa's dominion"].bought == 0)        caughtThemAll = false;
+    haveAllChristmas = caughtThemAll;
+    return caughtThemAll;
+
 }
 
 function haveAllEasterEggs() {
@@ -93,6 +125,7 @@ function haveAllEasterEggs() {
     else if (Game.Upgrades["Chocolate egg"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Century egg"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["\"egg\""].bought == 0)        caughtThemAll = false;
+    haveAllEaster = caughtThemAll;
     return caughtThemAll;
 }
 
@@ -105,6 +138,7 @@ function haveAllHalloweenCookies() {
     else if (Game.Upgrades["Pumpkin cookies"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Eyeball cookies"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Spider cookies"].bought == 0)        caughtThemAll = false;
+    haveAllHalloween = caughtThemAll;
     return caughtThemAll
 }
 
@@ -172,6 +206,7 @@ function upgradeUpgrades() {
             else if (i == "Octillion fingers") upgradeUpgrade(i, color);
             else if (i == "Increased merriness") upgradeUpgrade(i, color);
             else if (i == "Improved jolliness") upgradeUpgrade(i, color);
+
             else if (i == "A lump of coal") upgradeUpgrade(i, color);
             else if (i == "An itchy sweater") upgradeUpgrade(i, color);
             else if (i == "Reindeer baking grounds") upgradeUpgrade(i, color);
@@ -186,6 +221,7 @@ function upgradeUpgrades() {
             else if (i == "Santa's legacy") upgradeUpgrade(i, color);
             else if (i == "Santa's milk and cookies") upgradeUpgrade(i, color);
             else if (i == "Santa's dominion") upgradeUpgrade(i, color);
+
             else if (i == "Adamantium mouse") upgradeUpgrade(i, color);
             else if (i == "Eludium mouse") upgradeUpgrade(i, color);
             else if (i == "Fantasteel mouse") upgradeUpgrade(i, color);
@@ -262,15 +298,15 @@ function confirmWinClose() {
 function waitForGame(delay) {
     var ready = false;
 
-        ready = typeof Game.ClickCookie != 'undefined' && typeof CM !== 'undefined' && typeof CM.Cache.Upgrades !== 'undefined';
-        if (ready) {
+    ready = typeof Game.ClickCookie != 'undefined' && typeof CM !== 'undefined' && typeof CM.Cache.Upgrades !== 'undefined';
+    if (ready) {
 
-            Init();
-        } else {
-            setTimeout(function () {
-                waitForGame(delay);
-            }, delay);
-        }
+        Init();
+    } else {
+        setTimeout(function () {
+            waitForGame(delay);
+        }, delay);
+    }
 
 }
 
