@@ -21,7 +21,7 @@ function Init() {
         if (!haveAllValentineCookies) {
             Game.Popup("You are missing Valentine's day cookies");
         } else haveAllValentines = true;
-        if (!haveAllChristmasUpgrades()) {
+        if (!haveAllChristmas) {
             Game.Popup("You are missing Christmas upgrades");
         }
     }
