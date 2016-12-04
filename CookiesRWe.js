@@ -6,10 +6,9 @@ var CRW = {};
 //todo easter & halloween cookie find/refresh
 //todo if frenzy switch season!!!!!
 //todo disable auto-buy
+//todo add 'Cookies Required'
 CRW.Init = function () {
     CRW.loops = [];
-    CRW.loops.clickBigCookie = setInterval(Game.ClickCookie, 16);
-    CRW.loops.upgradeInterval = setInterval(CRW.upgradeBuildings, CRW.prefs.normalIntervalSpeed);
 
     /*PREFERENCES*/
     CRW.prefs = [];
@@ -21,8 +20,6 @@ CRW.Init = function () {
     CRW.prefs.refreshOnRust = false; //todo implement
     CRW.prefs.disableClickSound = true; //todo implement
     CRW.prefs.autoClickerEnabled = true;
-    if (CRW.prefs.disableClickSound) Game.playCookieClickSound = function () { //Removes clicking sound from game, sorry dude
-    };
 
     /*GLOBALS*/
     CRW.globals = [];
@@ -51,7 +48,13 @@ CRW.Init = function () {
          location.reload();
          }*/
     }, 1000);
+
+    if (CRW.prefs.disableClickSound) Game.playCookieClickSound = function () { //Removes clicking sound from game, sorry dude
+    };
+    CRW.loops.clickBigCookie = setInterval(Game.ClickCookie, 16);
+    CRW.loops.upgradeInterval = setInterval(CRW.upgradeBuildings, CRW.prefs.normalIntervalSpeed);
     CRW.NotifyMissingSeasonalUpgrades();
+
 
 
 };
