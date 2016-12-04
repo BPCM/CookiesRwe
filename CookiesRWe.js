@@ -29,7 +29,7 @@ CRW.Init = function () {
     CRW.haveAllHalloween = false;
     CRW.haveAllValentines = false;
 
-    CRW.addKeyboardListeners();
+    addKeyboardListeners();
 
 
     setInterval(function () {
@@ -307,7 +307,7 @@ function waitForGame(delay) {
     }
 }
 
-CRW.addKeyboardListeners = function () {
+function addKeyboardListeners () {
     AddEvent(window, 'keydown', function (e) {
         if (!Game.OnAscend && Game.AscendTimer == 0) {
             if (/*e.ctrlKey &&*/ e.keyCode == 103) { //NUM7
@@ -327,4 +327,4 @@ CRW.addKeyboardListeners = function () {
         }
         Game.keys[e.keyCode] = 1;
     });
-};
+}
