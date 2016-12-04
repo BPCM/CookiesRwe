@@ -92,7 +92,7 @@ function haveAllEasterEggs() {
     else if (Game.Upgrades["Omelette"].bought = 0)        caughtThemAll = false;
     else if (Game.Upgrades["Chocolate egg"].bought = 0)        caughtThemAll = false;
     else if (Game.Upgrades["Century egg"].bought = 0)        caughtThemAll = false;
-    else if (Game.Upgrades["egg"].bought = 0)        caughtThemAll = false;
+    else if (Game.Upgrades["\"egg\""].bought = 0)        caughtThemAll = false;
     return caughtThemAll;
 }
 
@@ -261,7 +261,7 @@ function confirmWinClose() {
 
 function waitForGame(delay) {
     var ready = false;
-    try {
+
         ready = typeof Game.ClickCookie != 'undefined' && typeof CM !== 'undefined' && typeof CM.Cache.Upgrades !== 'undefined';
         if (ready) {
 
@@ -271,11 +271,7 @@ function waitForGame(delay) {
                 waitForGame(delay);
             }, delay);
         }
-    } catch (err) {
-        setTimeout(function () {
-            waitForGame(delay);
-        }, delay);
-    }
+
 }
 
 function disableElderPledge() {
