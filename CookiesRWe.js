@@ -260,7 +260,7 @@ function confirmWinClose() {
 }
 
 function waitForGame(delay) {
-    if (typeof Game.ClickCookie != 'undefined' && typeof CM != 'undefined') {
+    if (typeof Game.ClickCookie != 'undefined' && typeof CM.Cache.Upgrades != 'undefined') {
         Init();
     }
     else {
