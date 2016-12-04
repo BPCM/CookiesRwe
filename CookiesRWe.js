@@ -10,7 +10,7 @@ function Init() {
     Game.playCookieClickSound = function () { //Removes clicking sound from game, sorry dude
     };
 
-    if (typeof CM.Cache.Upgrades["Bunny biscuit"] != 'undefined') {
+    if (Game.Upgrades["Bunny biscuit"].unlocked) {
         if (!haveAllEasterEggs()) {
             Game.Popup("You are missing Easter eggs!");
         }
