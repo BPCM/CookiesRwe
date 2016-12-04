@@ -264,6 +264,7 @@ function waitForGame(delay) {
     try {
         ready = typeof Game.ClickCookie != 'undefined' && typeof CM !== 'undefined' && typeof CM.Cache.Upgrades !== 'undefined';
         if (ready) {
+
             Init();
         } else {
             setTimeout(function () {
