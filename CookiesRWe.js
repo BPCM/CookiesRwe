@@ -241,6 +241,7 @@ CRW.upgradeAllAvailableUpgrades = function () {
             else if (i == "Spider cookies") CRW.upgradeUpgrade(i, color);
         }
         if (color == CM.Disp.colorBlue && i != "Golden switch [off]") {
+            CRW.globals.updateUpgradeAvailable = true;
             CRW.upgradeUpgrade(i, color);
             break;
         } else if (color == CM.Disp.colorGreen && i != "Golden switch [off]") {
