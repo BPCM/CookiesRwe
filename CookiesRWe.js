@@ -165,7 +165,8 @@ CRW.upgradeAllAvailableUpgrades = function () {
         if (color == CM.Disp.colorGray && i != "Golden switch [off]") {
             if (i == 'A festive hat')CRW.upgradeUpgrade(i, color);
             else if (i == 'A crumbly egg')CRW.upgradeUpgrade(i, color);
-            else if (CRW.prefs.autoBuyElderPledge == true && i == "Elder Pledge")CRW.upgradeUpgrade(i, color);
+            else if (CRW.prefs.autoBuyElderPledge == true && i == "Elder Pledge")
+                CRW.upgradeUpgrade(i, color);
 
 
             else if (i == "Omelette") CRW.upgradeUpgrade(i, color);
