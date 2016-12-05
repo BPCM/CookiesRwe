@@ -20,15 +20,16 @@ CRW.Init = function () {
     CRW.prefs.refreshOnRust = false; //todo implement
     CRW.prefs.disableClickSound = true; //todo implement
     CRW.prefs.autoClickerEnabled = true;
+    function setDefaultGlobals() {
+        CRW.globals = [];
+        CRW.globals.updateUpgradeAvailable = false;
+        CRW.globals.haveAllEaster = false;
+        CRW.globals.haveAllChristmas = false;
+        CRW.globals.haveAllHalloween = false;
+        CRW.globals.haveAllValentines = false;
+    }
 
-    /*GLOBALS*/
-    CRW.globals = [];
-    CRW.globals.updateUpgradeAvailable = false;
-    CRW.globals.haveAllEaster = false;
-    CRW.globals.haveAllChristmas = false;
-    CRW.globals.haveAllHalloween = false;
-    CRW.globals.haveAllValentines = false;
-
+    setDefaultGlobals();
     addKeyboardListeners();
 
     setInterval(function () {
@@ -159,13 +160,13 @@ CRW.upgradeBuildings = function () {
 
 CRW.upgradeAllAvailableUpgrades = function () {
     CRW.globals.updateUpgradeAvailable = false;
-    var nameOfLowestBlue = null, lowestBlueBasePrice = null, lowestGreenBasePrice = null, nameOfLowestGreen = 0;
     for (var i in CM.Cache.Upgrades) {
         var color = CM.Cache.Upgrades[i].color;
         if (color == CM.Disp.colorGray && i != "Golden switch [off]") {
             if (i == 'A festive hat')CRW.upgradeUpgrade(i, color);
             else if (i == 'A crumbly egg')CRW.upgradeUpgrade(i, color);
             else if (CRW.prefs.autoBuyElderPledge && i == "Elder Pledge")CRW.upgradeUpgrade(i, color);
+
 
             else if (i == "Omelette") CRW.upgradeUpgrade(i, color);
             else if (i == "Chicken egg") CRW.upgradeUpgrade(i, color);
@@ -180,6 +181,7 @@ CRW.upgradeAllAvailableUpgrades = function () {
             else if (i == "Shark egg") CRW.upgradeUpgrade(i, color);
             else if (i == "Turtle egg") CRW.upgradeUpgrade(i, color);
             else if (i == "Ant larva") CRW.upgradeUpgrade(i, color);
+
             else if (i == "Golden goose egg") CRW.upgradeUpgrade(i, color);
             else if (i == "Faberge egg") CRW.upgradeUpgrade(i, color);
             else if (i == "Wrinklerspawn") CRW.upgradeUpgrade(i, color);
@@ -279,7 +281,8 @@ CRW.upgradeObject = function (object) {
 CRW.disableElderPledge = function () {
     if (CRW.prefs.autoBuyElderPledge) {
         CRW.prefs.autoBuyElderPledge = false;
-        Game.Popup('Disabled elder pledge auto-buy');
+        Game.Notify('Config', 'Disabled elder pledge auto-buy', [20, 7], 4);
+        // Game.Popup('Disabled elder pledge auto-buy');
     } else {
         CRW.prefs.autoBuyElderPledge = true;
         Game.Popup('Enabled elder pledge auto-buy');
