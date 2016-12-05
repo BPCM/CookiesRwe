@@ -24,16 +24,16 @@ CRW.Init = function () {
     /*GLOBALS*/
     CRW.globals = [];
     CRW.globals.updateUpgradeAvailable = false;
-    CRW.haveAllEaster = false;
-    CRW.haveAllChristmas = false;
-    CRW.haveAllHalloween = false;
-    CRW.haveAllValentines = false;
+    CRW.globals.haveAllEaster = false;
+    CRW.globals.haveAllChristmas = false;
+    CRW.globals.haveAllHalloween = false;
+    CRW.globals.haveAllValentines = false;
 
     addKeyboardListeners();
 
     setInterval(function () {
         /*        if (Game.Upgrades["Bunny biscuit"].unlocked) {
-         if (!CRW.haveAllEaster) {
+         if (!CRW.globals.haveAllEaster) {
 
          }
          }*/
@@ -54,7 +54,11 @@ CRW.Init = function () {
     CRW.loops.upgradeInterval = setInterval(CRW.upgradeBuildings, CRW.prefs.normalIntervalSpeed);
     CRW.NotifyMissingSeasonalUpgrades();
 };
+CRW.UnlockSeasonalUpgrades = function () {
+    if (!CRW.globals.haveAllChristmas) {
 
+    }
+};
 CRW.NotifyMissingSeasonalUpgrades = function () {
     if (Game.Upgrades["Bunny biscuit"].unlocked) {
         if (!CRW.haveAllEasterEggs()) {
@@ -66,7 +70,7 @@ CRW.NotifyMissingSeasonalUpgrades = function () {
         if (!CRW.haveAllValentineCookies()) {
             Game.Popup("You are missing Valentine's day cookies");
         }
-        if (!CRW.haveAllChristmasUpgrades()) {
+        if (!CRW.globals.haveAllChristmasUpgrades()) {
             Game.Popup("You are missing Christmas upgrades");
         }
     }
@@ -80,7 +84,7 @@ CRW.haveAllValentineCookies = function () {
     else if (Game.Upgrades["Weeping heart biscuits"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Golden heart biscuits"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Eternal heart biscuits"].bought == 0)        caughtThemAll = false;
-    CRW.haveAllValentines = caughtThemAll;
+    CRW.globals.haveAllValentines = caughtThemAll;
     return caughtThemAll;
 };
 
@@ -100,7 +104,7 @@ CRW.haveAllChristmasUpgrades = function () {
     else if (Game.Upgrades["Santa\'s legacy"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Santa\'s milk and cookies"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Santa\'s dominion"].bought == 0)        caughtThemAll = false;
-    CRW.haveAllChristmas = caughtThemAll;
+    CRW.globals.haveAllChristmas = caughtThemAll;
     return caughtThemAll;
 };
 
@@ -128,7 +132,7 @@ CRW.haveAllEasterEggs = function () {
     else if (Game.Upgrades["Chocolate egg"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Century egg"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["\"egg\""].bought == 0)        caughtThemAll = false;
-    CRW.haveAllEaster = caughtThemAll;
+    CRW.globals.haveAllEaster = caughtThemAll;
     return caughtThemAll;
 };
 
@@ -141,7 +145,7 @@ CRW.haveAllHalloweenCookies = function () {
     else if (Game.Upgrades["Pumpkin cookies"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Eyeball cookies"].bought == 0)        caughtThemAll = false;
     else if (Game.Upgrades["Spider cookies"].bought == 0)        caughtThemAll = false;
-    CRW.haveAllHalloween = caughtThemAll;
+    CRW.globals.haveAllHalloween = caughtThemAll;
     return caughtThemAll
 };
 
@@ -237,29 +241,13 @@ CRW.upgradeAllAvailableUpgrades = function () {
             else if (i == "Spider cookies") CRW.upgradeUpgrade(i, color);
         }
         if (color == CM.Disp.colorBlue && i != "Golden switch [off]") {
-            if (lowestBlueBasePrice = null) {
-                lowestBlueBasePrice = Game.Upgrades[i].basePrice;
-                nameOfLowestBlue = i;
-            } else if (lowestBlueBasePrice > Game.Upgrades[i].basePrice) {
-                lowestBlueBasePrice = Game.Upgrades[i].basePrice;
-                nameOfLowestBlue = i;
-            }
+            CRW.upgradeUpgrade(i, color);
+            break;
         } else if (color == CM.Disp.colorGreen && i != "Golden switch [off]") {
-            if (lowestGreenBasePrice = null) {
-                lowestBlueBasePrice = Game.Upgrades[i].basePrice;
-                nameOfLowestBlue = i;
-            } else if (lowestBlueBasePrice > Game.Upgrades[i].basePrice) {
-                lowestBlueBasePrice = Game.Upgrades[i].basePrice;
-                nameOfLowestBlue = i;
-            }
+            CRW.globals.updateUpgradeAvailable = true;
+            CRW.upgradeUpgrade(i, color);
+            break;
         }
-    }
-    if (lowestBlueBasePrice != null) {
-        CRW.globals.updateUpgradeAvailable = true;
-        CRW.upgradeUpgrade(nameOfLowestBlue, CM.Disp.colorBlue);
-    } else if (lowestGreenBasePrice != null) {
-        CRW.globals.updateUpgradeAvailable = true;
-        CRW.upgradeUpgrade(nameOfLowestGreen, CM.Disp.colorGreen);
     }
 };
 
